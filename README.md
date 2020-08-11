@@ -25,10 +25,11 @@ prefix everything with `my_string_` instead of `s_`.
 my_string *hello_sekai = s_create(L"Hello, 世界");
 my_string *bang = s_create(L"!");
 
-s_append_wr(hello_sekai, bang, 0);
+if (s_append_wr(hello_sekai, bang, 0) < 0)
+  return (EXIT_FAILURE);
 /* equivalent to s_append(hello_sekai, L"!", 1) */
 
-wprintf("%ls\n", s_text(hello_sekai));
+(void)wprintf("%ls\n", s_text(hello_sekai));
 /* => Hello, 世界! */
 
 s_destroy(hello_sekai);
