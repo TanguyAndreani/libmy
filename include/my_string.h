@@ -15,6 +15,10 @@ typedef struct {
   long buffer_size;
 } my_string;
 
+#define my_string_get_size(s) (s)->size
+#define my_string_get_buffer_size(s) (s)->buffer_size
+#define my_string_get_text(s) (s)->unicode
+
 my_string *my_string_create(wchar_t *unicode, long n);
 void my_string_destroy(my_string *s);
 

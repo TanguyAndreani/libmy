@@ -19,7 +19,7 @@ my_string *bang = my_string_create(L"!");
 
 my_string_append_wr(hello_sekai, bang, 0);
 
-wprintf("%ls\n", hello_sekai->unicode);
+wprintf("%ls\n", s(hello_sekai));
 /* => Hello, 世界! */
 
 my_string_destroy(hello_sekai);
