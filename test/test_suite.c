@@ -16,10 +16,14 @@ int main()
     test_case("Basic Unicode", {
       expect("right size", s->size == 9);
       expect("initial buffer size", s->buffer_size == 50);
-      expect("same string", !wcscmp(L"Hello, 世界", s->unicode));
+      expect("string matches", !wcscmp(L"Hello, 世界", s->unicode));
+    });
 
-      my_string_append_wr(s, bang, 1);
-      expect("append", !wcscmp(L"Hello, 世界!", s->unicode));
+    int i = my_string_append_wr(s, bang, 1);
+
+    test_case("Append", {
+      expect("return value", !i);
+      expect("string matches", !wcscmp(L"Hello, 世界!", s->unicode));
       expect("size after append", s->size == 10);
       expect("buffer size after append", s->buffer_size == 50);
     });
