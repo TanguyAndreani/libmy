@@ -10,6 +10,10 @@ static long max_long(long a, long b) {
 
 int my_string_append(my_string *dest, wchar_t *src, long n) {
   long src_len = wcslen(src);
+
+  if (!n)
+    n = src_len;
+
   long total_size = dest->size + max_long(src_len, n);
 
   if (dest->buffer_size < total_size + 1) {

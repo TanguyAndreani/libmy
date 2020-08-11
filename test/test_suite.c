@@ -18,7 +18,7 @@ int main()
       expect("initial buffer size", s->buffer_size == 10);
       expect("same string", !wcscmp(L"Hello, 世界", s->unicode));
 
-      my_string_append_wr(s, bang, 1);
+      my_string_append_wr(s, bang, 0);
       expect("append", !wcscmp(L"Hello, 世界!", s->unicode));
       expect("size after append", s->size == 10);
       expect("buffer size after append", s->buffer_size == 11);
