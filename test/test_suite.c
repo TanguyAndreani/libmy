@@ -11,14 +11,14 @@ int main()
     (void)setlocale(LC_ALL, "");
 
     my_string *s = my_string_create(L"Hello, 世界", 9);
-    my_string *bang = my_string_create(L"!", 1);
+    my_string *bang = my_string_create(L"!!!!", 4);
 
     test_case("Basic Unicode", {
       expect("right size", s->size == 9);
       expect("initial buffer size", s->buffer_size == 50);
       expect("same string", !wcscmp(L"Hello, 世界", s->unicode));
 
-      my_string_append_wr(s, bang, 0);
+      my_string_append_wr(s, bang, 1);
       expect("append", !wcscmp(L"Hello, 世界!", s->unicode));
       expect("size after append", s->size == 10);
       expect("buffer size after append", s->buffer_size == 50);
