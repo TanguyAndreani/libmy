@@ -13,15 +13,19 @@ Includes a string manipulation library
 
 ## Example
 
+*I'm using shortcuts from `include/my_string_shortcuts.h`, if your project
+is big and at risk of nameclashes, consider not including this file and
+prefix everything with `my_string_` instead of `s_`*
+
 ```c
-my_string *hello_sekai = my_string_create(L"Hello, 世界");
-my_string *bang = my_string_create(L"!");
+my_string *hello_sekai = s_create(L"Hello, 世界");
+my_string *bang = s_create(L"!");
 
-my_string_append_wr(hello_sekai, bang, 0);
+s_append_wr(hello_sekai, bang, 0);
 
-wprintf("%ls\n", s(hello_sekai));
+wprintf("%ls\n", s_text(hello_sekai));
 /* => Hello, 世界! */
 
-my_string_destroy(hello_sekai);
-my_string_destroy(bang);
+s_destroy(hello_sekai);
+s_destroy(bang);
 ```
