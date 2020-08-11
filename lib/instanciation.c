@@ -6,7 +6,7 @@
 
 #include "private.h"
 
-static my_string *my_string_init(my_string *s, int buffer_size) {
+static my_string *my_string_init(my_string *s, long buffer_size) {
   if (!s)
     return (NULL);
 
