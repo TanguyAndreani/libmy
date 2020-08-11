@@ -4,9 +4,7 @@
 
 #include "../include/my_string.h"
 
-static long max_long(long a, long b) {
-  return (a > b) ? a : b;
-}
+#include "private.h"
 
 int my_string_append(my_string *dest, wchar_t *src, long n) {
   long src_len = wcslen(src);
@@ -14,7 +12,7 @@ int my_string_append(my_string *dest, wchar_t *src, long n) {
   if (!n)
     n = src_len;
 
-  long total_size = dest->size + max_long(src_len, n);
+  long total_size = dest->size + my_string_max_long(src_len, n);
 
   if (dest->buffer_size < total_size + 1) {
     dest->unicode = realloc(dest->unicode, (total_size + 1) * sizeof(wchar_t));

@@ -4,6 +4,8 @@
 
 #include "../include/my_string.h"
 
+#include "private.h"
+
 static my_string *my_string_init(my_string *s, int buffer_size) {
   if (!s)
     return (NULL);
@@ -26,7 +28,7 @@ my_string *my_string_create(wchar_t *unicode) {
 
   int length = wcslen(unicode);
 
-  if (!my_string_init(s, length + 1)) {
+  if (!my_string_init(s, my_string_max_long(length + 1, 50))) {
     free(s);
     return (NULL);
   }
