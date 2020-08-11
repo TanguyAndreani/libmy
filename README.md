@@ -4,6 +4,13 @@
 
 Includes a string manipulation library
 
+## Goals
+
+- As beginner friendly as possible
+- With error messages
+- Hopefully no segfaults
+- Hopefully no memory leaks
+
 ## Example
 
 ```c
