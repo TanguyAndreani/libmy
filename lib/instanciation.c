@@ -20,23 +20,25 @@ static my_string *my_string_init(my_string *s, long buffer_size) {
   return (s);
 }
 
-my_string *my_string_create(wchar_t *unicode) {
+my_string *my_string_create(wchar_t *unicode, long n) {
   assert(unicode);
 
   my_string *s = malloc(sizeof(my_string));
   if (!s)
     return (NULL);
 
-  int length = wcslen(unicode);
+  if (!n)
+    n = wcslen(unicode);
 
-  if (!my_string_init(s, my_string_max_long(length + 1, 50))) {
+  if (!my_string_init(s, my_string_max_long(n + 1, 50))) {
     free(s);
     return (NULL);
   }
 
-  wcscpy(s->unicode, unicode);
+  for (long i = 0; i < n; i++)
+    s->unicode[i] = unicode[i];
 
-  s->size = length;
+  s->size = n;
 
   return (s);
 }

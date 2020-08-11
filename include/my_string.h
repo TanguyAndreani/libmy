@@ -15,7 +15,7 @@ typedef struct {
   long buffer_size;
 } my_string;
 
-my_string *my_string_create(wchar_t *unicode);
+my_string *my_string_create(wchar_t *unicode, long n);
 void my_string_destroy(my_string *s);
 
 int my_string_append(my_string *dest, wchar_t *src, long n);

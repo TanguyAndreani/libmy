@@ -10,8 +10,8 @@ int main()
 {
     (void)setlocale(LC_ALL, "");
 
-    my_string *s = my_string_create(L"Hello, 世界");
-    my_string *bang = my_string_create(L"!");
+    my_string *s = my_string_create(L"Hello, 世界", 9);
+    my_string *bang = my_string_create(L"!", 1);
 
     test_case("Basic Unicode", {
       expect("right size", s->size == 9);
