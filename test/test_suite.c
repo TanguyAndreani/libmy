@@ -25,13 +25,16 @@ int main()
 
     my_string_destroy(s);
 
-    my_string *s2 = my_string_create("Hello, World!", NULL);
+    my_string *s2 = my_string_create("Hello, World", NULL);
 
     test_case("Basic Ascii", {
-      expect("right size", s->size == 13);
-      expect("initial buffer size", s->buffer_size == 14);
+      expect("right size", s->size == 12);
+      expect("initial buffer size", s->buffer_size == 13);
       expect("type is unicode", s->type == MY_STRING_ASCII);
-      expect("same string", !strcmp("Hello, World!", s->ascii));
+      expect("same string", !strcmp("Hello, World", s->ascii));
+
+      my_string_append(s, "!", 1);
+      expect("append", !strcmp("Hello, World!", s->ascii));
     });
 
     my_string_destroy(s2);
