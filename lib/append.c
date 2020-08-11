@@ -24,3 +24,7 @@ int my_string_append(my_string *dest, wchar_t *src, long n) {
 
   return 0;
 }
+
+int my_string_append_wr(my_string *dest, my_string *src, long n) {
+  return my_string_append(dest, src->unicode, n);
+}
