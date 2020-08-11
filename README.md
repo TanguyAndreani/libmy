@@ -18,6 +18,10 @@ is big and at risk of nameclashes, consider not including this file and
 prefix everything with `my_string_` instead of `s_`.
 
 ```c
+/* You need that before dealing with Unicode characters */
+#include <locale.h>
+(void)setlocale(LC_ALL, "");
+
 my_string *hello_sekai = s_create(L"Hello, 世界");
 my_string *bang = s_create(L"!");
 
