@@ -25,6 +25,7 @@ int main()
     });
 
     my_string_destroy(s);
+    my_string_destroy(bang);
 
     return 0;
 }
