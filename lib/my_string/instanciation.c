@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "../include/my_string.h"
+#include "../../include/my_string.h"
 
-#include "private.h"
+#include "../private.h"
 
 static my_string *my_string_init(my_string *s, long buffer_size) {
   s->size = 0;

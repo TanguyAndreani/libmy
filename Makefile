@@ -1,5 +1,5 @@
 CC	?=	gcc
-SRC	= $(wildcard lib/*.c)
+SRC	= $(wildcard lib/*.c lib/*/*.c)
 OBJ	=	$(SRC:.c=.o)
 CFLAGS	=	-Wall -g
 

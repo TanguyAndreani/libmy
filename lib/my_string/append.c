@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "../include/my_string.h"
+#include "../../include/my_string.h"
 
 int my_string_append(my_string *dest, wchar_t *src, long n) {
   assert(dest);
