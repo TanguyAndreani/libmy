@@ -7,7 +7,7 @@
 
 int my_string_append(my_string *dest, wchar_t *src, long n) {
   assert(dest);
-  assert(dest);
+  assert(src);
   assert(n >= 0);
 
   long src_len = wcslen(src);
