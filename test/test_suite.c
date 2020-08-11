@@ -20,6 +20,8 @@ int main()
 
       my_string_append(s, bang, 1);
       expect("append", !wcscmp(L"Hello, 世界!", s->unicode));
+      expect("size after append", s->size == 10);
+      expect("buffer size after append", s->buffer_size == 11);
     });
 
     my_string_destroy(s);
