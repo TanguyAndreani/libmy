@@ -1,12 +1,17 @@
 #include <wchar.h>
 #include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "../include/my_string.h"
 
 #include "private.h"
 
 int my_string_append(my_string *dest, wchar_t *src, long n) {
+  assert(dest);
+  assert(dest);
+  assert(n >= 0);
+
   long src_len = wcslen(src);
 
   if (!n)
