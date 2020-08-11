@@ -8,7 +8,7 @@ static long max_long(long a, long b) {
   return (a > b) ? a : b;
 }
 
-static int my_string_append_unicode(my_string *dest, wchar_t *src, long n) {
+int my_string_append(my_string *dest, wchar_t *src, long n) {
   long src_len = wcslen(src);
   long total_size = dest->size + max_long(src_len, n);
 
@@ -23,10 +23,4 @@ static int my_string_append_unicode(my_string *dest, wchar_t *src, long n) {
   dest->size = total_size;
 
   return 0;
-}
-
-int my_string_append(my_string *dest, void *src, long n) {
-  if (dest->type == MY_STRING_UNICODE) {
-    return my_string_append_unicode(dest, src, n);
-  }
 }
