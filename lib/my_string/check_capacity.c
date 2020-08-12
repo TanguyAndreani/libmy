@@ -8,6 +8,7 @@
 
 int my_string_check_capacity(my_string *s, long new_size) {
   assert(s);
+  assert(new_size >= 0);
 
   if (new_size <= my_string_get_buffer_size(s))
     return (0);

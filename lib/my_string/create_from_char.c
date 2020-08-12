@@ -4,6 +4,8 @@
 #include "../../include/my_string.h"
 
 my_string *my_string_create_from_char(wchar_t c, long count) {
+  assert(count >= 0);
+
   my_string *s = my_string_create(L"", 0);
   if (!s)
     return NULL;

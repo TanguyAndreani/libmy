@@ -15,6 +15,9 @@
  */
 
 int my_string_delete_char(my_string *s, wchar_t c) {
+  assert(s);
+  assert(c != L'\0');
+
   for (long i = 0; i < my_string_get_size(s); i++) {
     if (my_string_get_text(s)[i] == c) {
       my_string_get_text(s)[i] = L'\0';
