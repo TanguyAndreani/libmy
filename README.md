@@ -50,6 +50,6 @@ When a function returns `NULL` or something less than zero.
 ## Limits
 
 **Maximum length of strings**: Based on experimentations on my own computer,
-I could make a string as 3'303'820'996 wide chars.
+I could make a string as long as 3'303'820'996 wide chars.
 
 **Things that could limit the length of a string**: the size of the arguments of memory allocation functions and `LONG_MAX`, which I use for indexes.
