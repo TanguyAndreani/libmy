@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 
 long my_string_max_long(long a, long b) {

@@ -1,6 +1,5 @@
 #include <wchar.h>
 #include <string.h>
-#include <stdlib.h>
 #include <assert.h>
 
 #include "../../include/my_string.h"

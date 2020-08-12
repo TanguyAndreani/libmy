@@ -22,6 +22,7 @@ static my_string *my_string_init(my_string *s, long buffer_size) {
 
 my_string *my_string_create(wchar_t *unicode, long n) {
   assert(unicode);
+  assert(n >= 0);
 
   my_string *s = my_malloc(sizeof(my_string));
   if (!s)
