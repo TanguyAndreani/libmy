@@ -71,12 +71,21 @@ int main()
     if (!unsorted)
       return 1;
 
-    my_string_bubblesort(unsorted, my_string_ascending);
 
     test_case("My String::Bubblesort", {
+      my_string_bubblesort(unsorted, my_string_ascending);
       expect("ascending", !wcscmp(L"abcdefghijkmz", s_text(unsorted)));
 
       my_string_bubblesort(unsorted, my_string_descending);
+      expect("descending", !wcscmp(L"zmkjihgfedcba", s_text(unsorted)));
+    });
+
+
+    test_case("My String::Quicksort", {
+      my_string_quicksort(unsorted, my_string_ascending);
+      expect("ascending", !wcscmp(L"abcdefghijkmz", s_text(unsorted)));
+
+      my_string_quicksort(unsorted, my_string_descending);
       expect("descending", !wcscmp(L"zmkjihgfedcba", s_text(unsorted)));
     });
 
