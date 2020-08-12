@@ -29,6 +29,16 @@ int main()
       expect("buffer size after append", s_bufsize(s) == 50);
     });
 
+    my_string *concat = my_string_concat(s, s);
+
+    test_case("Concat", {
+      expect("return value", concat);
+      expect("string matches", !wcscmp(L"Hello, 世界!Hello, 世界!", s_text(concat)));
+      expect("size", s_size(concat) == 20);
+      expect("buffer size", s_bufsize(concat) == 50);
+    });
+
+    s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
 

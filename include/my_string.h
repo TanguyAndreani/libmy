@@ -27,4 +27,8 @@ int my_string_append_wr(my_string *dest, my_string *src, long n);
 
 int my_string_check_capacity(my_string *s, long new_size);
 
+my_string *my_string_clone(my_string *s);
+
+my_string *my_string_concat(my_string *s1, my_string *s2);
+
 #endif
