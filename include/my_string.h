@@ -30,4 +30,6 @@ int my_string_delete_char(my_string *s, wchar_t c);
 
 long my_string_count_char(my_string *s, wchar_t c);
 
+my_string *my_string_create_from_char(wchar_t c, long count);
+
 #endif
