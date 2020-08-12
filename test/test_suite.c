@@ -12,34 +12,33 @@ int main()
     (void)setlocale(LC_ALL, "");
 
     my_string *s = s_create(L"Hello, 世界", 9);
-    my_string *bang = s_create(L"!!!!", 4);
-
-    if (!s || !bang)
+    if (!s)
       return 1;
 
-    test_case("Basic Unicode", {
-      expect("right size", s_size(s) == 9);
-      expect("initial buffer size", s_bufsize(s) == 50);
+    test_case("My String::Create", {
       expect("string matches", !wcscmp(L"Hello, 世界", s_text(s)));
+      expect("size", s_size(s) == wcslen(s_text(s)));
+      expect("buffer size", s_bufsize(s) == 50);
     });
 
-    if (my_string_append_wr(s, bang, 1) < 0)
+
+    my_string *bang = s_create(L"!!!!", 4);
+    if (!bang || my_string_append_wr(s, bang, 1) < 0)
       return 1;
 
-    test_case("Append", {
+    test_case("My String::Append", {
       expect("string matches", !wcscmp(L"Hello, 世界!", s_text(s)));
-      expect("size after append", s_size(s) == 10);
-      expect("buffer size after append", s_bufsize(s) == 50);
+      expect("size", s_size(s) == wcslen(s_text(s)));
+      expect("buffer size", s_bufsize(s) == 50);
     });
 
     my_string *concat = my_string_concat(s, s);
     if (!concat)
-      return (1);
+      return 1;
 
-    test_case("Concat", {
-      expect("return value", concat);
+    test_case("My String::Concat", {
       expect("string matches", !wcscmp(L"Hello, 世界!Hello, 世界!", s_text(concat)));
-      expect("size", s_size(concat) == 20);
+      expect("size", s_size(concat) == wcslen(s_text(concat)));
       expect("buffer size", s_bufsize(concat) == 50);
     });
 
