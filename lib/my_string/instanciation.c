@@ -5,13 +5,13 @@
 
 #include "../../include/my_string.h"
 
-#include "../private.h"
+#include "../helpers.h"
 
 static my_string *my_string_init(my_string *s, long buffer_size) {
   s->size = 0;
   s->buffer_size = buffer_size;
 
-  s->unicode = malloc(sizeof(wchar_t) * buffer_size);
+  s->unicode = my_malloc(sizeof(wchar_t) * buffer_size);
   if (!s->unicode)
     return (NULL);
 
@@ -23,7 +23,7 @@ static my_string *my_string_init(my_string *s, long buffer_size) {
 my_string *my_string_create(wchar_t *unicode, long n) {
   assert(unicode);
 
-  my_string *s = malloc(sizeof(my_string));
+  my_string *s = my_malloc(sizeof(my_string));
   if (!s)
     return (NULL);
 

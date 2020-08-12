@@ -35,3 +35,14 @@ if (s_append_wr(hello_sekai, bang, 0) < 0)
 s_destroy(hello_sekai);
 s_destroy(bang);
 ```
+
+## Error handling
+
+Two kinds of errors:
+
+**Failed asserts**: When you feed those functions with bad arguments.
+When you're sure that your code is running correctly, you can remove
+(or not) those checks by compiling with `-DNDEBUG`.
+
+**Memory allocation errors**: Basically the only recoverable error.
+When a function returns `NULL` or something less than zero.
