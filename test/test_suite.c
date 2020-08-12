@@ -54,13 +54,24 @@ int main()
     });
 
     test_case("My String::Count Char", {
-      expect("count zero", my_string_count_char(foo, L'f') == 2);
+      expect("count two", my_string_count_char(foo, L'f') == 2);
+      expect("count zero", my_string_count_char(foo, L'z') == 0);
+    });
+
+    my_string *manyfs = my_string_create_from_char(L'f', 10);
+    if (!manyfs)
+      return 1;
+
+    test_case("My String::Create From Char", {
+      expect("string matches", !wcscmp(L"ffffffffff", s_text(manyfs)));
+      expect("size", my_string_get_size(manyfs) == 10);
     });
 
     s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
     s_destroy(foo);
+    s_destroy(manyfs);
 
     return 0;
 }
