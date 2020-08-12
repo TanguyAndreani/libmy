@@ -19,4 +19,10 @@
 #define s_destroy(s) \
   my_string_destroy(s)
 
+#define s_concat(s1, s2) \
+  my_string_concat(s1, s2)
+
+#define s_clone(s) \
+  my_string_clone(s)
+
 #endif
