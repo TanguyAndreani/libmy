@@ -3,11 +3,6 @@
 
 #include <wchar.h>
 
-enum {
-  MY_STRING_ASCII,
-  MY_STRING_UNICODE
-};
-
 typedef struct {
   wchar_t *unicode;
 
