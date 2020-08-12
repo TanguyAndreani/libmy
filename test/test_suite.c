@@ -55,6 +55,7 @@ int main()
     s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
+    s_destroy(foo);
 
     return 0;
 }
