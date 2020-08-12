@@ -32,4 +32,9 @@ long my_string_count_char(my_string *s, wchar_t c);
 
 my_string *my_string_create_from_char(wchar_t c, long count);
 
+void my_string_bubblesort(my_string *s, int (*f)(wchar_t, wchar_t));
+
+int my_string_ascending(wchar_t a, wchar_t b);
+int my_string_descending(wchar_t a, wchar_t b);
+
 #endif

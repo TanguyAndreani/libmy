@@ -67,6 +67,19 @@ int main()
       expect("size", s_size(manyfs) == 10);
     });
 
+    my_string *unsorted = s_create(L"abczdefghkimj", 0);
+    if (!unsorted)
+      return 1;
+
+    my_string_bubblesort(unsorted, my_string_ascending);
+
+    test_case("My String::Bubblesort", {
+      expect("ascending", !wcscmp(L"abcdefghijkmz", s_text(unsorted)));
+
+      my_string_bubblesort(unsorted, my_string_descending);
+      expect("descending", !wcscmp(L"zmkjihgfedcba", s_text(unsorted)));
+    });
+
     s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
