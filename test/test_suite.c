@@ -23,7 +23,7 @@ int main()
 
 
     my_string *bang = s_create(L"!!!!", 4);
-    if (!bang || my_string_append_wr(s, bang, 1) < 0)
+    if (!bang || s_append_wr(s, bang, 1) < 0)
       return 1;
 
     test_case("My String::Append", {
@@ -32,7 +32,7 @@ int main()
       expect("buffer size", s_bufsize(s) == 50);
     });
 
-    my_string *concat = my_string_concat(s, s);
+    my_string *concat = s_concat(s, s);
     if (!concat)
       return 1;
 
@@ -42,11 +42,11 @@ int main()
       expect("buffer size", s_bufsize(concat) == 50);
     });
 
-    my_string *foo = my_string_create(L"foobarfoo", 9);
+    my_string *foo = s_create(L"foobarfoo", 9);
     if (!foo)
       return 1;
 
-    my_string_delete_char(foo, L'o');
+    s_delete_char(foo, L'o');
 
     test_case("My String::Delete Char", {
       expect("string matches", !wcscmp(L"fbarf", s_text(foo)));
@@ -54,17 +54,17 @@ int main()
     });
 
     test_case("My String::Count Char", {
-      expect("count two", my_string_count_char(foo, L'f') == 2);
-      expect("count zero", my_string_count_char(foo, L'z') == 0);
+      expect("count two", s_count_char(foo, L'f') == 2);
+      expect("count zero", s_count_char(foo, L'z') == 0);
     });
 
-    my_string *manyfs = my_string_create_from_char(L'f', 10);
+    my_string *manyfs = s_create_from_char(L'f', 10);
     if (!manyfs)
       return 1;
 
     test_case("My String::Create From Char", {
       expect("string matches", !wcscmp(L"ffffffffff", s_text(manyfs)));
-      expect("size", my_string_get_size(manyfs) == 10);
+      expect("size", s_size(manyfs) == 10);
     });
 
     s_destroy(concat);

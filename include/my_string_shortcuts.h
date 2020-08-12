@@ -11,7 +11,7 @@
   my_string_append((s1), (s2), (n))
 
 #define s_append_wr(s1, s2, n) \
-  my_string_append((s1), (s2), (n))
+  my_string_append_wr((s1), (s2), (n))
 
 #define s_create(s, n) \
   my_string_create((s), (n))
@@ -24,5 +24,14 @@
 
 #define s_clone(s) \
   my_string_clone(s)
+
+#define s_count_char(s, c) \
+  my_string_count_char(s, c)
+
+#define s_create_from_char(c, n) \
+  my_string_create_from_char(c, n)
+
+#define s_delete_char(s, c) \
+  my_string_delete_char(s, c)
 
 #endif
