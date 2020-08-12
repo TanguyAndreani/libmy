@@ -50,6 +50,11 @@ int main()
 
     test_case("My String::Delete Char", {
       expect("string matches", !wcscmp(L"fbarf", s_text(foo)));
+      expect("size updated", s_size(foo) == 5);
+    });
+
+    test_case("My String::Count Char", {
+      expect("count zero", my_string_count_char(foo, L'f') == 2);
     });
 
     s_destroy(concat);

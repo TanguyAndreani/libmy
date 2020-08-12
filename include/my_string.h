@@ -28,4 +28,6 @@ my_string *my_string_concat(my_string *s1, my_string *s2);
 
 int my_string_delete_char(my_string *s, wchar_t c);
 
+long my_string_count_char(my_string *s, wchar_t c);
+
 #endif

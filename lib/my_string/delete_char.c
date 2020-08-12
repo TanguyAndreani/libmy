@@ -30,5 +30,7 @@ int my_string_delete_char(my_string *s, wchar_t c) {
     }
   }
 
+  s->size -= n;
+
   return 0;
 }
