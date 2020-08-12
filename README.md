@@ -53,3 +53,12 @@ When a function returns `NULL` or something less than zero.
 I could make a string as long as 3'303'820'996 wide chars.
 
 **Things that could limit the length of a string**: the size of the arguments of memory allocation functions and `LONG_MAX`, which I use for indexes.
+
+## Dependencies
+
+None other than the standard library.
+
+- `wcslen`, used in functions which take a `wchar_t *` argument,
+- `wmemset`, used only on a string's instanciation,
+-  Standard memory allocation functions,
+- `assert` from `assert.h` to validate arguments (see paragraphs above to disable)
