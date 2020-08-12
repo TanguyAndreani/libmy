@@ -42,6 +42,16 @@ int main()
       expect("buffer size", s_bufsize(concat) == 50);
     });
 
+    my_string *foo = my_string_create(L"foobarfoo", 9);
+    if (!foo)
+      return 1;
+
+    my_string_delete_char(foo, L'o');
+
+    test_case("My String::Delete Char", {
+      expect("string matches", !wcscmp(L"fbarf", s_text(foo)));
+    });
+
     s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
