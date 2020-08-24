@@ -89,11 +89,28 @@ int main()
       expect("descending", !wcscmp(L"zmkjihgfedcba", s_text(unsorted)));
     });
 
+
+    my_string *toclean = s_create(L"foo bar baz", 0);
+    if (!toclean)
+      return 1;
+
+    test_case("My String::Delete Word", {
+      s_delete_word(toclean, L" baz", 4);
+      expect("trailing", !wcscmp(L"foo bar", s_text(toclean)));
+      expect("size", s_size(toclean) == 7);
+
+      s_delete_word(toclean, L"o b", 3);
+      expect("middle", !wcscmp(L"foar", s_text(toclean)));
+      expect("size", s_size(toclean) == 4);
+    });
+
     s_destroy(concat);
     s_destroy(s);
     s_destroy(bang);
     s_destroy(foo);
     s_destroy(manyfs);
+    s_destroy(unsorted);
+    s_destroy(toclean);
 
     return 0;
 }

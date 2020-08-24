@@ -38,4 +38,8 @@ void my_string_quicksort(my_string *s, int (*f)(wchar_t, wchar_t));
 int my_string_ascending(wchar_t a, wchar_t b);
 int my_string_descending(wchar_t a, wchar_t b);
 
+int my_string_shift_left(my_string *s, long from, long size);
+
+int my_string_delete_word(my_string *s, wchar_t *w, long n);
+
 #endif

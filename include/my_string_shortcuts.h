@@ -34,4 +34,9 @@
 #define s_delete_char(s, c) \
   my_string_delete_char(s, c)
 
+#define s_delete_word my_string_delete_word
+
+#define s_shift_left(s, f, sz) \
+  my_string_shift_left(s, f, sz)
+
 #endif
