@@ -62,3 +62,17 @@ None other than the standard library.
 - `wmemset`, used only on a string's instanciation,
 -  Standard memory allocation functions,
 - `assert` from `assert.h` to validate arguments (see paragraphs above to disable)
+
+## API
+
+### Destructive operations
+
+|Function|Description|Error handling|
+|--------|-----------|--------------|
+|`void my_string_destroy(my_string *s);`|Frees `s`. You cannot use `s` after calling that.|It cannot fail unless `free` fails.|
+
+### Non-destructive
+
+|Function|Description|Error handling|
+|--------|-----------|--------------|
+|`my_string *my_string_create(wchar_t *unicode, long n);`|Returns a new string made up of at most `n` characters of `unicode`|Returns `NULL` on failed allocation.|
