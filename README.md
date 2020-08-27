@@ -22,8 +22,8 @@ prefix everything with `my_string_` instead of `s_`.
 #include <locale.h>
 (void)setlocale(LC_ALL, "");
 
-my_string *hello_sekai = s_create(L"Hello, 世界");
-my_string *bang = s_create(L"!");
+my_string *hello_sekai = s_create(L"Hello, 世界", 9);
+my_string *bang = s_create(L"!", 1);
 
 if (s_append_wr(hello_sekai, bang, 0) < 0)
   return (EXIT_FAILURE);
