@@ -76,3 +76,28 @@ None other than the standard library.
 |Function|Description|Error handling|
 |--------|-----------|--------------|
 |`my_string *my_string_create(wchar_t *unicode, long n);`|Returns a new string made up of at most `n` characters of `unicode`|Returns `NULL` on failed allocation.|
+
+## Performance optimizations
+
+- Some functions may call `wcslen` to calculate the length when it isn't available as argument (ie. when you pass `n <= 0`). Passing a positive value of `n` will skip the call to `wcslen`.
+
+ie. If you create many strings from the same argument, consider doing:
+
+```c
+wchar_t *src = L"hello";
+long size = wcslen(src);
+for (;;) {
+  my_string *ss[i] = s_create(src, size);
+  // [...]
+}
+```
+
+instead of:
+
+```c
+wchar_t *src = L"hello";
+for (;;) {
+  my_string *ss[i] = s_create(src, 0);
+  // [...]
+}
+```
