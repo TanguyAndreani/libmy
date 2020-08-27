@@ -25,9 +25,9 @@ prefix everything with `my_string_` instead of `s_`.
 my_string *hello_sekai = s_create(L"Hello, 世界", 9);
 my_string *bang = s_create(L"!", 1);
 
-if (s_append_wr(hello_sekai, bang, 0) < 0)
-  return (EXIT_FAILURE);
-/* equivalent to s_append(hello_sekai, L"!", 1) */
+if (s_append_wr(hello_sekai, bang, 0) < 0) {
+    return (EXIT_FAILURE);
+}
 
 (void)wprintf("%ls\n", s_text(hello_sekai));
 /* => Hello, 世界! */
